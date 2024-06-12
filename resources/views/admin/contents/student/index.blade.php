@@ -21,6 +21,7 @@
                     <th>NIM</th>
                     <th>Class</th>
                     <th>Major</th>
+                    <th>Courses</th>
                     <th>Action</th>
                 </tr>
 
@@ -31,6 +32,7 @@
                     <td>{{ $student->nim }}</td>
                     <td>{{ $student->major }}</td>
                     <td>{{ $student->class }}</td>
+                    <td>{{ $student->course->matkul ?? 'tidak ada data' }}</td>
                     <td class="d-flex">
                         <a href="/admin/student/edit/{{ $student->id }}" class="btn btn-warning me-2" >Edit</a>
                         <form action="/admin/student/delete/{{ $student->id }}" method="POST">

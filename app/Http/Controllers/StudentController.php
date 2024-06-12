@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Courses;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,12 @@ class StudentController extends Controller
 
     // method untuk menampilkan form tambahan student
     public function create(){
-        return view('admin.contents.student.create');
+
+        $courses = Courses::all();
+
+        return view('admin.contents.student.create', [
+            'courses' => $courses,
+        ]);
     }
 
 
@@ -33,6 +39,7 @@ class StudentController extends Controller
             'nim' => 'required|numeric',
             'major' => 'required',
             'class' => 'required',
+            'courses_id' => 'nullable',
         ]);
     
 
@@ -40,8 +47,10 @@ class StudentController extends Controller
         Student::create([
             'name' => $request->name,
             'nim' => $request->nim,
-            'major' => $request->major ,
+            'major' => $request->major,
             'class' => $request->class,
+            'courses_id' => $request->course_id,
+
         ]);
 
         // kembalikan ke halaman utama
@@ -54,8 +63,16 @@ class StudentController extends Controller
         // cari data student berdasarkan id'
         $student = Student::find($id); // Select * FROM students WHERE id=$id;
 
+        if (!$student) {
+            return redirect('/admin/student')->with('error', 'Student tidak ditemukan');
+        }
+
+        // menangkap student
+        $courses = Courses::all();
+
         return view('admin.contents.student.edit', [
-            'student' => $student
+            'student' => $student,
+            'courses' => $courses,
         ]);
     }
 
@@ -70,6 +87,7 @@ class StudentController extends Controller
             'nim' => 'required|numeric',
             'major' => 'required',
             'class' => 'required',
+            'courses_id' => 'nullable',
         ]);
 
         // simpan perubahan
@@ -78,6 +96,7 @@ class StudentController extends Controller
             'nim' => $request->nim,
             'major' => $request->major,
             'class' => $request->class,
+            'courses_id' => $request->course_id,
         ]);
 
         // kembalikan ke halaman utama

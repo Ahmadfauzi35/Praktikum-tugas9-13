@@ -18,23 +18,23 @@
                 @csrf
                 <div class="mb-2">
                     <label for="hari" class="form-label">Hari</label>
-                    <input for="hari" name="hari" id="hari" class="form-control">
+                    <input type="text" name="hari" id="hari" class="form-control">
                 </div>
 
                 <div class="mb-2">
                     <label for="nim" class="form-label">Ruang</label>
-                    <input for="text" name="ruang" id="ruang" class="form-control">
+                    <input type="text" name="ruang" id="ruang" class="form-control">
                 </div>
 
                 <div class="mb-2">
                     <label for="waktu" class="form-label">Waktu</label>
-                    <input for="time" name="waktu" id="waktu" class="form-control">
+                    <input type="time" name="waktu" id="waktu" class="form-control">
                 </div>
 
 
                 <div class="mb-2">
-                    <label for="name" class="form-label">Major</label>
-                    <select name="major" id="major" class="form-select">
+                    <label for="name" class="form-label">Matkul</label>
+                    <select name="matkul" id="matkul" class="form-select">
                         <option value="">Pilih Mata Kuliah</option>
                         <option value="Jaringan Komputer">Jaringan Komputer</option>
                         <option value="Pemrograman Web">Pemrograman Web</option>

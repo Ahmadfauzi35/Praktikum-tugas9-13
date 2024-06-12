@@ -29,10 +29,11 @@ class CoursesController extends Controller
     // method untuk menyimpan data courses baru
     public function store(Request $request)
     {
+        // dd($request -> all());
         //validasi request
         $request->validate([
             'hari' => 'required',
-            'ruang' => 'required|numeric',
+            'ruang' => 'required',
             'waktu' => 'required',
             'matkul' => 'required',
         ]);
@@ -70,7 +71,7 @@ class CoursesController extends Controller
         // validasi request 
         $request->validate([
             'hari' => 'required',
-            'ruang' => 'required|numeric',
+            'ruang' => 'required',
             'waktu' => 'required',
             'matkul' => 'required',
         ]);

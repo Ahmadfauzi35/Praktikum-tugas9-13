@@ -14,7 +14,7 @@
 <section class="section">
     <div class="card">
         <div class="card-body">
-            <a href="/admin/courses/create" class="btn btn-primary">+ Courses</a>
+            <a href="/admin/courses/create" class="btn btn-primary my-4">+ Courses</a>
             <table class="table mt-2">
                 <tr>
                     <th>No</th>
